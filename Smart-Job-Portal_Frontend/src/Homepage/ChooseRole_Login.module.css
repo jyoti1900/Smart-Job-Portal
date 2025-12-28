@@ -1,0 +1,192 @@
+/* ================= ROOT ================= */
+.role-container {
+  min-height: 100vh;
+  padding: 6rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  background: radial-gradient(
+      circle at top left,
+      rgba(67, 160, 70, 0.25),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(67, 160, 70, 0.35),
+      transparent 45%
+    ),
+    #f6fff8;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+/* ================= CARD ================= */
+.role-card {
+  width: 480px;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(14px);
+  border-radius: 22px;
+  padding: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(67, 160, 70, 0.2);
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* glowing border */
+.role-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 22px;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(168, 237, 170, 0.4),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.role-card:hover::before {
+  opacity: 1;
+}
+
+.role-card:hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 35px 60px rgba(67, 160, 70, 0.153);
+}
+
+
+/* ================= CONTENT ================= */
+.role-content {
+  flex: 1;
+}
+
+.role-card h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #4D4D4D;
+  margin-bottom: 0.75rem;
+}
+.role-title span {
+  color: #43A046;
+  position: relative;
+}
+.role-card p {
+  font-size: 0.95rem;
+  color: #4D4D4D;
+  line-height: 1.6;
+  margin-bottom: 1.6rem;
+}
+
+/* ================= BUTTON ================= */
+.register-btn {
+  background: linear-gradient(135deg, #43A046, #2e7d32);
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.register-btn::after {
+  content: "→";
+  transition: transform 0.3s ease;
+}
+
+.register-btn:hover::after {
+  transform: translateX(6px);
+}
+
+.register-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(67, 160, 70, 0.45);
+}
+
+/* recruiter variation */
+.recruiter {
+  background: linear-gradient(135deg, #2e7d32, #43A046);
+}
+
+/* ================= IMAGE ================= */
+.role-image img {
+  width: 150px;
+  animation: float 4s ease-in-out infinite;
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1024px) {
+  .role-card {
+    width: 420px;
+  }
+}
+
+@media (max-width: 768px) {
+  .role-container {
+    flex-direction: column;
+    padding: 4rem 1.5rem;
+  }
+
+  .role-card {
+    width: 100%;
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .role-image img {
+    width: 130px;
+  }
+
+  .register-btn {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .role-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .role-card h2 {
+    font-size: 1.4rem;
+  }
+}

@@ -1,0 +1,588 @@
+.container {
+  padding: 40px 100px 60px;
+  background: #f8f9fa;
+  min-height: 100vh;
+  font-family: "Cabin", sans-serif;
+}
+
+.header {
+  margin-bottom: 2rem;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.title {
+  color: #263238;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1;
+  padding-top: 60px;
+}
+
+.subtitle {
+  color: #546e7a;
+  font-size: 1.1rem;
+  margin: 0.5rem 0 0;
+}
+
+/* Filters Section */
+.filtersSection {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  animation: slideUp 0.4s ease-out;
+}
+
+/* .searchBox {
+  position: relative;
+  margin-bottom: 1.5rem;
+  max-width: 500px;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.8rem 1rem 0.8rem 2.5rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #263238;
+  transition: all 0.3s ease;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23455a64' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1.2rem;
+  padding-right: 3rem;
+} */
+
+.searchBox {
+  margin-bottom: 1.2rem;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 2px solid #e0e0e0;
+  font-size: 0.95rem;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #43A046;
+  box-shadow: 0 0 0 3px rgba(67, 160, 70, 0.1);
+}
+
+/* .searchIcon {
+  position: absolute;
+  left: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #78909c;
+} */
+
+.filterControls {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.filterGroup {
+  flex: 1;
+  min-width: 180px;
+  
+}
+
+.filterGroup label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #263238;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.filterSelect {
+  width: 100%;
+  padding: 0.7rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background: white;
+  color: #263238;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23455a64' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.7rem center;
+  background-size: 1.2rem;
+  padding-right: 2.5rem;
+}
+
+.filterSelect:focus {
+  outline: none;
+  border-color: #43A046;
+  box-shadow: 0 0 0 3px rgba(67, 160, 70, 0.1);
+}
+
+.clearButton {
+  padding: 0.7rem 1.5rem;
+  background: transparent;
+  color: #263238;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.clearButton:hover {
+  background: #f5f5f5;
+  border-color: #43A046;
+  color: #43A046;
+}
+
+.resultsInfo {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+  color: #546e7a;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.activeFilters {
+  color: #43A046;
+  font-weight: 500;
+}
+
+/* neeeewwww */
+
+.filterInput {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #263238;
+  transition: all 0.3s ease;
+  background: #fff;
+}
+
+.filterInput::placeholder {
+  color: #9e9e9e;
+}
+
+.filterInput:focus {
+  outline: none;
+  border-color: #43A046;
+  box-shadow: 0 0 0 3px rgba(67, 160, 70, 0.1);
+}
+
+/* neeeewww */
+
+/* Table Styles */
+.tableContainer {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  animation: fadeIn 0.6s ease-out;
+}
+
+.tableWrapper {
+  overflow-x: auto;
+}
+
+.jobsTable {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 1200px;
+  font-family: "Cabin", sans-serif;
+}
+
+.jobsTable thead {
+  background: #f8f9fa;
+}
+
+.jobsTable th {
+  padding: 1.2rem;
+  text-align: left;
+  color: #263238;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid #43A046;
+  font-family: "Inter", sans-serif;
+}
+
+.jobRow {
+  animation: rowAppear 0.5s ease-out forwards;
+  opacity: 0;
+  transform: translateY(10px);
+  font-family: "Cabin", sans-serif;
+}
+
+.jobRow:hover {
+  background: #f8f9fa;
+}
+
+.jobsTable td {
+  padding: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+  color: #263238;
+  vertical-align: middle;
+}
+
+.jobName {
+  font-weight: 600;
+  color: #263238;
+}
+
+.description {
+  color: #4D4D4D;
+  font-size: 0.95rem;
+  max-width: 200px;
+  font-family: "Cabin", sans-serif;
+}
+
+.salaryBadge {
+  background: #e8f5e9;
+  color: #43A046;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: inline-block;
+}
+
+.locationBadge {
+  background: #e3f2fd;
+  color: #1976d2;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  display: inline-block;
+}
+
+.appCount {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: #f5f5f5;
+  border-radius: 50%;
+  font-weight: 600;
+  color: #263238;
+}
+
+.statusBadge {
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: inline-block;
+  min-width: 80px;
+  text-align: center;
+}
+
+.date {
+  color: #546e7a;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+/* Action buttons in single line */
+.actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: nowrap;
+  min-width: 220px;
+}
+
+.actionButton {
+  padding: 0.4rem 0.8rem;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  color: #263238;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.actionButton:hover {
+  background: #f5f5f5;
+  transform: translateY(-1px);
+}
+
+/* Specific button styles */
+.viewButton {
+  color: #1976d2;
+  border-color: #1976d2;
+}
+
+.editButton {
+  color: #43A046;
+  border-color: #43A046;
+}
+
+.deleteButton {
+  color: #E53935;
+  border-color: #E53935;
+}
+
+.deleteButton:hover {
+  background: #ffebee;
+}
+
+/* Delete Modal */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.modalContent {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 90%;
+  animation: slideUp 0.3s ease-out;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.modalIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #43A046;
+}
+
+.modalTitle {
+  color: #263238;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.modalMessage {
+  color: #546e7a;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.modalActions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.modalButton {
+  padding: 0.7rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  min-width: 100px;
+}
+
+.modalConfirm {
+  background: #43A046;
+  color: white;
+}
+
+.modalConfirm:hover {
+  background: #388E3C;
+  transform: translateY(-1px);
+}
+
+.noResults {
+  text-align: center;
+  padding: 3rem;
+  color: #546e7a;
+}
+
+.noResults p {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding: 1rem;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.paginationButton {
+  padding: 0.6rem 1.2rem;
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  color: #263238;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.paginationButton:not(:disabled):hover {
+  border-color: #43A046;
+  color: #43A046;
+}
+
+.paginationButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pageInfo {
+  color: #263238;
+  font-size: 0.95rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rowAppear {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .container {
+    padding: 1.5rem;
+  }
+  
+  .jobsTable {
+    min-width: 1000px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .filterControls {
+    flex-direction: column;
+  }
+  
+  .filterGroup {
+    min-width: 100%;
+  }
+  
+  .clearButton {
+    width: 100%;
+  }
+  
+  .resultsInfo {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .pagination {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .paginationButton {
+    width: 100%;
+  }
+  
+  /* On mobile, allow action buttons to wrap */
+  .actions {
+    flex-wrap: wrap;
+  }
+  
+  .modalContent {
+    width: 85%;
+    padding: 1.5rem;
+  }
+  
+  .modalActions {
+    flex-direction: column;
+  }
+  
+  .modalButton {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.75rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+  
+  .searchInput {
+    font-size: 0.9rem;
+  }
+  
+  .filterSelect {
+    font-size: 0.9rem;
+  }
+}

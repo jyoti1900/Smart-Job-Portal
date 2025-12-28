@@ -1,0 +1,45 @@
+{
+  "name": "job_portal_minor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "author": "Jyotipriya Das",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-crypto/sha256-browser": "^2.0.1",
+    "@aws-sdk/client-secrets-manager": "^3.131.0",
+    "@aws-sdk/hash-node": "^3.55.0",
+    "@aws-sdk/protocol-http": "^3.58.0",
+    "@aws-sdk/s3-request-presigner": "^3.74.0",
+    "@aws-sdk/url-parser": "^3.55.0",
+    "@aws-sdk/util-format-url": "^3.58.0",
+    "arctic": "^3.7.0",
+    "aws-sdk": "^2.1467.0",
+    "body-parser": "^1.19.0",
+    "cookie-session": "^2.1.0",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^8.6.0",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1",
+    "helmet": "^4.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.27.0",
+    "mongoose": "^5.13.23",
+    "multer": "^1.4.4",
+    "nodemailer": "^7.0.11",
+    "passport": "^0.7.0",
+    "passport-google-oauth2": "^0.2.0",
+    "passport-google-oauth20": "^2.0.0",
+    "path": "^0.12.7",
+    "randomstring": "^1.3.1",
+    "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}

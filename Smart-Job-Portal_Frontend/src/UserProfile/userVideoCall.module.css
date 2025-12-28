@@ -1,0 +1,666 @@
+/* Full-Screen Video Call Interface */
+.callOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #66BB69;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  font-family: "Roboto", sans-serif;
+  overflow: hidden;
+}
+
+.callWindow {
+  background: #66BB69;
+  border-radius: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: white;
+  box-shadow: none;
+}
+
+/* Header Section */
+.callHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  min-height: 70px;
+}
+
+.callInfo h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.callInfo p {
+  margin: 5px 0 0;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.callTimer {
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 4px 12px;
+  border-radius: 12px;
+  display: inline-block;
+}
+
+.closeButton {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.closeButton:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.closeButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Video Area - Full Screen */
+.videoArea {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  padding: 15px;
+  position: relative;
+  height: calc(100vh - 140px);
+  min-height: 0;
+}
+
+/* Remote Video (Candidate/Other Person) */
+.remoteVideo {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.remoteVideoElement {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Self Preview (Your Video) */
+.selfPreview {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.selfVideoElement {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Video Labels and Overlays */
+.selfVideoOverlay {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.cameraOffOverlay,
+.muteIndicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  background: rgba(67, 160, 70, 0.5);
+  border-radius: 6px;
+}
+
+.screenShareIndicatorSmall {
+  background: rgba(67, 160, 70, 0.5);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+.selfLabel {
+  font-weight: 500;
+}
+
+.remoteLabel {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  padding: 6px 12px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.screenShareIndicator {
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(67, 160, 70, 0.5);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  backdrop-filter: blur(5px);
+}
+
+/* Control Bar */
+.controlsBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  min-height: 80px;
+}
+
+.leftControls,
+.rightControls {
+  display: flex;
+  gap: 10px;
+  flex: 1;
+}
+
+.rightControls {
+  justify-content: flex-end;
+}
+
+.controlButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 15px;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 80px;
+}
+
+.controlButton:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+.controlButton.controlOff {
+  background: rgba(67, 160, 70, 0.5);
+}
+
+.controlButton.controlActive {
+  background: rgba(67, 160, 70, 0.7);
+}
+
+.controlButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.controlIcon {
+  font-size: 22px;
+}
+
+.controlLabel {
+  font-size: 12px;
+  font-weight: 700;
+  color: #263238;
+}
+
+.endCallButton {
+  padding: 12px 40px;
+  background: #F44336;
+  border: none;
+  border-radius: 50px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0 15px;
+  min-width: 120px;
+}
+
+.endCallButton:hover:not(:disabled) {
+  background: #D32F2F;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(244, 67, 54, 0.3);
+}
+
+.endCallButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Status Bar */
+.statusBar {
+  padding: 10px 25px;
+  background: rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 13px;
+}
+
+.statusItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.statusDot.connected {
+  background: #43A046;
+  animation: pulse 2s infinite;
+}
+
+.statusDot.connecting {
+  background: #FF9800;
+  animation: pulse 1.5s infinite;
+}
+
+.statusDot.disconnected {
+  background: #F44336;
+}
+
+.statusText {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Incoming Call Overlay */
+.incomingCallOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(10px);
+  padding: 40px;
+  text-align: center;
+  z-index: 20;
+}
+
+.ringingAnimation {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin-bottom: 30px;
+}
+
+.ringingCircle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  animation: ripple 2s infinite;
+  width: 120px;
+  height: 120px;
+}
+
+.ringingCircle:nth-child(2) {
+  animation-delay: 0.5s;
+  width: 90px;
+  height: 90px;
+}
+
+.ringingCircle:nth-child(3) {
+  animation-delay: 1s;
+  width: 60px;
+  height: 60px;
+}
+
+.incomingCallOverlay h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.incomingCallOverlay p {
+  font-size: 16px;
+  opacity: 0.9;
+  margin-bottom: 30px;
+}
+
+.incomingCallButtons {
+  display: flex;
+  gap: 20px;
+}
+
+.acceptCallButton,
+.rejectCallButton {
+  padding: 15px 40px;
+  border: none;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 150px;
+}
+
+.acceptCallButton {
+  background: #43A046;
+  color: white;
+}
+
+.acceptCallButton:hover:not(:disabled) {
+  background: #2D7A30;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(67, 160, 70, 0.3);
+}
+
+.rejectCallButton {
+  background: #F44336;
+  color: white;
+}
+
+.rejectCallButton:hover:not(:disabled) {
+  background: #D32F2F;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(244, 67, 54, 0.3);
+}
+
+.acceptCallButton:disabled,
+.rejectCallButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Connecting Overlay */
+.connectingOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 15;
+}
+
+.connectingSpinner {
+  width: 60px;
+  height: 60px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #43A046;
+  animation: spin 1s ease-in-out infinite;
+  margin-bottom: 20px;
+}
+
+.connectingOverlay p {
+  font-size: 18px;
+  text-align: center;
+}
+
+/* Error Message */
+.errorMessage {
+  background: rgba(244, 67, 54, 0.2);
+  border-left: 4px solid #F44336;
+  margin: 0 25px 15px;
+  padding: 15px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.errorMessage span:first-child {
+  font-size: 20px;
+}
+
+.errorActions {
+  margin-left: auto;
+  display: flex;
+  gap: 10px;
+}
+
+.retryButton {
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.retryButton:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Loading Overlay */
+.loadingOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 10;
+}
+
+.loadingSpinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #43A046;
+  animation: spin 1s ease-in-out infinite;
+  margin-bottom: 20px;
+}
+
+.loadingOverlay p {
+  font-size: 16px;
+  text-align: center;
+  max-width: 300px;
+}
+
+/* Debug Panel */
+.debugPanel {
+  position: absolute;
+  top: 10px;
+  right: 80px;
+  display: flex;
+  gap: 10px;
+  z-index: 1000;
+}
+
+.debugPanel button {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: all 0.2s ease;
+}
+
+.debugPanel button:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Animations */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes ripple {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    width: 200px;
+    height: 200px;
+    opacity: 0;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .videoArea {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
+    gap: 10px;
+    padding: 10px;
+    height: calc(100vh - 150px);
+  }
+  
+  .selfPreview {
+    height: 180px;
+  }
+  
+  .callHeader {
+    padding: 10px 15px;
+    min-height: 60px;
+  }
+  
+  .controlsBar {
+    padding: 10px 15px;
+    min-height: 70px;
+  }
+  
+  .controlButton {
+    padding: 8px 10px;
+    min-width: 70px;
+  }
+  
+  .controlIcon {
+    font-size: 20px;
+  }
+  
+  .endCallButton {
+    padding: 10px 25px;
+    font-size: 14px;
+    min-width: 100px;
+    margin: 0 10px;
+  }
+  
+  .statusBar {
+    padding: 8px 15px;
+  }
+  
+  .incomingCallButtons {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .acceptCallButton,
+  .rejectCallButton {
+    padding: 12px 30px;
+    font-size: 16px;
+    min-width: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .callInfo h3 {
+    font-size: 16px;
+  }
+  
+  .callInfo p {
+    font-size: 12px;
+  }
+  
+  .videoArea {
+    height: calc(100vh - 140px);
+  }
+  
+  .selfPreview {
+    height: 150px;
+  }
+  
+  .controlButton {
+    min-width: 60px;
+    padding: 6px 8px;
+  }
+  
+  .controlLabel {
+    font-size: 10px;
+  }
+  
+  .endCallButton {
+    padding: 8px 20px;
+    font-size: 13px;
+    min-width: 80px;
+  }
+}

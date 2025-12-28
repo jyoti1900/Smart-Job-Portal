@@ -1,0 +1,565 @@
+/* ApplicationManager.module.css */
+
+/* CSS Variables */
+:root {
+  --primary-green: #43A046;
+  --primary-dark: #2d7a2f;
+  --primary-light: #6abf6d;
+  --primary-lighter: #e8f5e9;
+  --text-dark: #333333;
+  --text-light: #666666;
+  --bg-light: #f9f9f9;
+  --card-bg: #ffffff;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 6px 20px rgba(0, 0, 0, 0.12);
+  --transition: all 0.3s ease;
+}
+
+/* Global Reset */
+.applicationManager * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.applicationManager {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+/* Header Styles */
+.appHeader {
+  text-align: center;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--primary-lighter);
+}
+
+.appHeader h1 {
+  color: var(--text-dark);
+  font-size: 2.5rem;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+}
+
+.appHeader h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background-color: var(--primary-green);
+  border-radius: 2px;
+}
+
+/* Applications Grid */
+.applicationsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  gap: 30px;
+}
+
+/* Application Card */
+.applicationCard {
+  background-color: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: 30px;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+.applicationCard:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+.applicationCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, var(--primary-green), var(--primary-light));
+}
+
+/* Applicant Info */
+.applicantName {
+  font-size: 1.8rem;
+  color: var(--text-dark);
+  margin-bottom: 5px;
+}
+
+.applicantPosition {
+  color: var(--primary-green);
+  font-weight: 600;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+.applicantDetails {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.detailItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.detailLabel {
+  font-weight: 600;
+  color: var(--text-light);
+  font-size: 0.9rem;
+  margin-bottom: 3px;
+}
+
+.detailValue {
+  color: var(--text-dark);
+  font-size: 1rem;
+}
+
+/* Status Styles */
+.statusContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.statusLabel {
+  font-weight: 600;
+  color: var(--text-light);
+  margin-right: 10px;
+}
+
+.statusBadge {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.statusApplied {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+
+.statusUnderReview {
+  background-color: #fff3e0;
+  color: #f57c00;
+}
+
+.statusShortlisted {
+  background-color: #e8f5e9;
+  color: #2d7a2f;
+}
+
+.statusRejected {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+.statusHired {
+  background-color: #f3e5f5;
+  color: #7b1fa2;
+}
+
+/* Action Buttons Container */
+.actionButtons {
+  display: flex;
+  gap: 15px;
+  margin-top: auto;
+}
+
+/* Unique View Resume Button Design */
+.viewResumeBtn {
+  background-color: var(--primary-green);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+  flex: 1;
+  min-height: 52px;
+  box-shadow: 0 4px 12px rgba(67, 160, 70, 0.3);
+}
+
+.viewResumeBtn:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(67, 160, 70, 0.4);
+}
+
+.viewResumeBtn:active {
+  transform: translateY(0);
+}
+
+.viewResumeBtn .btnEffect {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.btnText {
+  z-index: 1;
+}
+
+.btnIcon {
+  font-size: 1.2rem;
+  z-index: 1;
+}
+
+/* General Action Buttons */
+.actionBtn {
+  flex: 1;
+  background-color: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 14px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 52px;
+}
+
+.actionBtn:hover {
+  background-color: #f5f5f5;
+  transform: translateY(-2px);
+}
+
+.chatBtn {
+  color: #5c6bc0;
+}
+
+.videoBtn {
+  color: #ec407a;
+}
+
+.actionIcon {
+  font-size: 1.2rem;
+}
+
+/* Popup Modal Styles */
+.resumePopup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.popupOpen {
+  display: flex;
+}
+
+.popupOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+.popupContent {
+  position: relative;
+  background-color: var(--card-bg);
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  animation: slideUp 0.4s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.popupCloseBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.08);
+  border: none;
+  border-radius: 50%;
+  font-size: 1.8rem;
+  color: var(--text-light);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  z-index: 10;
+}
+
+.popupCloseBtn:hover {
+  background-color: rgba(0, 0, 0, 0.15);
+  color: var(--text-dark);
+}
+
+.popupHeader {
+  padding: 30px 30px 20px;
+  background: linear-gradient(135deg, var(--primary-lighter), white);
+  border-bottom: 1px solid #eee;
+}
+
+.popupHeader h2 {
+  color: var(--text-dark);
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.popupSubtitle {
+  color: var(--primary-green);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.popupBody {
+  padding: 30px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* Resume Preview */
+.resumePreview {
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 30px;
+  border: 1px solid #eee;
+}
+
+.resumeHeader {
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.resumeHeader h3 {
+  color: var(--text-dark);
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.resumeSection {
+  margin-bottom: 25px;
+}
+
+.resumeSection h4 {
+  color: var(--primary-green);
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px dashed #e0e0e0;
+}
+
+.resumeSection ul {
+  padding-left: 20px;
+}
+
+.resumeSection li {
+  margin-bottom: 5px;
+}
+
+.skillsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skillTag {
+  background-color: var(--primary-lighter);
+  color: var(--primary-dark);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* Popup Action Buttons */
+.popupActions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.popupDownloadBtn, .popupPrintBtn {
+  background-color: var(--primary-green);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 14px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  justify-content: center;
+  max-width: 250px;
+}
+
+.popupDownloadBtn:hover, .popupPrintBtn:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(67, 160, 70, 0.3);
+}
+
+.popupPrintBtn {
+  background-color: #5c6bc0;
+}
+
+.popupPrintBtn:hover {
+  background-color: #3f51b5;
+  box-shadow: 0 6px 12px rgba(92, 107, 192, 0.3);
+}
+
+.downloadIcon, .printIcon {
+  font-size: 1.1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1100px) {
+  .applicationsContainer {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .applicationManager {
+    padding: 15px;
+  }
+  
+  .appHeader h1 {
+    font-size: 2rem;
+  }
+  
+  .applicationsContainer {
+    gap: 20px;
+  }
+  
+  .applicationCard {
+    padding: 20px;
+  }
+  
+  .applicantDetails {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .actionButtons {
+    flex-direction: column;
+  }
+  
+  .popupContent {
+    width: 95%;
+    max-height: 85vh;
+  }
+  
+  .popupHeader {
+    padding: 20px 20px 15px;
+  }
+  
+  .popupBody {
+    padding: 20px;
+  }
+  
+  .popupActions {
+    flex-direction: column;
+  }
+  
+  .popupDownloadBtn, .popupPrintBtn {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .applicantName {
+    font-size: 1.5rem;
+  }
+  
+  .viewResumeBtn, .actionBtn {
+    padding: 12px 16px;
+    font-size: 0.95rem;
+  }
+  
+  .popupHeader h2 {
+    font-size: 1.6rem;
+  }
+  
+  .resumePreview {
+    padding: 20px 15px;
+  }
+  
+  .skillsList {
+    justify-content: center;
+  }
+}

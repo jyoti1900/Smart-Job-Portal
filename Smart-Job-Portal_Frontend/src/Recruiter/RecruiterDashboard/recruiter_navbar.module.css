@@ -1,0 +1,613 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.recruiter-navbar {
+  display: flex;
+  max-width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  height: 70px;
+  background-color: #ffffff60; /* translucent white */
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 2px hsla(0, 0%, 0%, 0.25);
+  z-index: 30;
+  animation: slide-down 0.7s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+@keyframes slide-down {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Logo Styles */
+.nav-left {
+  flex: 1;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+/* Navigation Tabs */
+.nav-center {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-tab {
+  position: relative;
+  background: none;
+  border: none;
+  padding: 12px 24px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #666;
+  transition: color 0.2s ease;
+}
+
+.nav-tab:hover {
+  color: #333;
+}
+
+.nav-tab.active {
+  color: #43A046;
+  font-weight: 600;
+}
+
+.active-indicator {
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 70%;
+  height: 3px;
+  background-color: #43A046;
+  border-radius: 3px 3px 0 0;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.nav-tab.active .active-indicator {
+  opacity: 1;
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* Right Side Controls */
+.nav-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+/* Profile Styles - FIXED */
+.profile-wrapper {
+  position: relative;
+}
+
+.profile-btn {
+  background: none; /* Remove background */
+  border: none; /* Remove border */
+  width: auto; /* Let it size based on content */
+  height: auto; /* Let it size based on content */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0; /* Remove padding */
+}
+
+.profile-btn:hover {
+  transform: scale(1.05);
+}
+
+.profile-avatar {
+  width: 42px; /* Increased from 38px */
+  height: 42px; /* Increased from 38px */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Ensure image stays within bounds */
+  border: 2px solid rgba(67, 160, 70, 0.2); /* Optional: add a subtle border */
+  transition: border-color 0.3s ease;
+}
+
+.profile-avatar:hover {
+  border-color: rgba(67, 160, 70, 0.5);
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures image covers the circle properly */
+  border-radius: 50%; /* Ensure image is also rounded */
+}
+
+/* Profile Dropdown */
+.profile-dropdown {
+  position: absolute;
+  top: 55px;
+  right: 0;
+  width: 300px;
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  animation: slideDown 0.3s ease;
+  overflow: hidden;
+  z-index: 1001;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.profile-header {
+  padding: 1.25rem 1.5rem;
+  background: #43a046d1;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.dropdown-avatar {
+  width: 52px;
+  height: 52px;
+  background: #2d6b2f;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1.4rem;
+  color: white;
+  flex-shrink: 0;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.dropdown-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.profile-info {
+  flex: 1;
+}
+
+.profile-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.profile-email {
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+.dropdown-menu {
+  padding: 0.50rem;
+}
+
+.dropdown-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0.75rem 1rem;
+  background: transparent;
+  border: none;
+  border-radius: 10px;
+  color: #4D4D4D;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.dropdown-item:hover {
+  background: rgba(67, 160, 70, 0.08);
+  color: #43A046;
+  transform: translateX(5px);
+}
+
+.item-icon {
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+.dropdown-item-img {
+  height: 20px;
+  width: 20px;
+}
+
+.logout-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 0.875rem;
+  background: transparent;
+  border: none;
+  color: #FF6B6B;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 10px;
+  margin: 0.25rem;
+}
+
+.logout-btn:hover {
+  background: rgba(255, 107, 107, 0.1);
+}
+
+.logout-icon {
+  font-size: 1.1rem;
+}
+
+/* Keep the rest of your existing CSS styles below... */
+
+/* Post a job button styles */
+.Post-a-job {
+  position: relative;
+  display: inline-block;
+  margin: 1rem 0;
+}
+
+.post-job-link {
+  text-decoration: none;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.post-job-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 6px 12px;
+  background: linear-gradient(135deg, #43A046 0%, #66bb6a 100%);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 0.6rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  max-width: 120px;
+  white-space: nowrap;
+}
+
+.post-job-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  background: linear-gradient(135deg, #3a8a3d 0%, #5ca95f 100%);
+  font-weight: 700;
+}
+
+.post-job-btn:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 3px 8px rgba(67, 160, 70, 0.25);
+}
+
+.post-job-btn::before {
+  content: '+';
+  font-size: 1.1rem;
+  font-weight: 700;
+  transition: transform 0.2s ease;
+}
+
+.post-job-btn:hover::before {
+  transform: rotate(90deg);
+}
+
+/* Notification Styles */
+.notification-wrapper {
+  position: relative;
+  background: transparent;
+}
+
+.notification-btn {
+  background: transparent;
+  border: none;
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 8px;
+}
+
+.notification-btn img {
+  width: 35px;
+  height: 35px;
+  transition: all 0.3s ease;
+  display: block;
+}
+
+.notification-btn:hover {
+  transform: rotate(15deg);
+}
+
+.notification-btn:hover img {
+  filter: brightness(1.1);
+}
+
+.notification-badge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background: #FF4757;
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  min-width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  border: 2px solid white;
+  z-index: 1;
+}
+
+.notification-dropdown {
+  position: absolute;
+  top: 55px;
+  right: 0;
+  width: 340px;
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  animation: slideDown 0.3s ease;
+  overflow: hidden;
+  z-index: 1001;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.notification-header {
+  padding: 1.25rem 1.5rem;
+  background: #43a046d1;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.notification-header h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.notification-count {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.notification-list {
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 0.75rem;
+}
+
+.notification-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 0.875rem;
+  border-radius: 12px;
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.notification-item:hover {
+  background: rgba(67, 160, 70, 0.05);
+  border-color: rgba(67, 160, 70, 0.1);
+  transform: translateX(4px);
+}
+
+.notification-item.unread {
+  background: rgba(67, 160, 70, 0.08);
+  border-color: rgba(67, 160, 70, 0.15);
+}
+
+.notification-dot {
+  width: 8px;
+  height: 8px;
+  background: #43A046;
+  border-radius: 50%;
+  margin-top: 6px;
+  flex-shrink: 0;
+  animation: blink 2s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.notification-item.read .notification-dot {
+  background: #B0BEC5;
+  animation: none;
+}
+
+.notification-content {
+  flex: 1;
+}
+
+.notification-text {
+  color: #263238;
+  font-weight: 500;
+  margin-bottom: 4px;
+  font-size: 0.9rem;
+}
+
+.notification-time {
+  color: #78909C;
+  font-size: 0.8rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .nav-tabs {
+    gap: 0.5rem;
+  }
+  
+  .nav-tab {
+    padding: 0.7rem 1.25rem;
+  }
+  
+  .notification-dropdown,
+  .profile-dropdown {
+    width: 240px;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .recruiter-navbar {
+    padding: 0 1.25rem;
+    position: fixed;
+    height: 65px;
+  }
+  
+  .nav-center {
+    display: none;
+  }
+  
+  .mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    order: 1;
+  }
+  
+  .nav-left {
+    order: 2;
+    flex: none;
+  }
+  
+  .nav-right {
+    order: 3;
+    flex: none;
+  }
+  
+  .logo-text {
+    font-size: 1.4rem;
+  }
+  
+  .logo-icon {
+    width: 38px;
+    height: 38px;
+    font-size: 1.2rem;
+  }
+  
+  .notification-dropdown {
+    right: -80px;
+  }
+  
+  .profile-dropdown {
+    right: -10px;
+  }
+  
+  .notification-dropdown,
+  .profile-dropdown {
+    width: 240px;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .recruiter-navbar {
+    padding: 0 1rem;
+  }
+  
+  .logo-text span:not(.logo-highlight) {
+    display: none;
+  }
+  
+  .notification-dropdown,
+  .profile-dropdown {
+    width: 280px;
+    right: -50px;
+  }
+  
+  .profile-dropdown {
+    right: -10px;
+  }
+  
+  .profile-btn,
+  .notification-btn,
+  .mobile-menu-btn {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(67, 160, 70, 0.05);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(67, 160, 70, 0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(67, 160, 70, 0.5);
+}
