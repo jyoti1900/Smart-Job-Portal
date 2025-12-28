@@ -86,7 +86,7 @@ Traditional job portals lack real-time communication, transparency, and smart fi
 ---
 
 ## 📂 Project Structure
-
+```bash
 Smart-Job-Portal/
 │
 ├── backend/
@@ -105,7 +105,7 @@ Smart-Job-Portal/
 ├── .env
 ├── package.json
 └── README.md
-
+```
 
 ---
 
@@ -155,14 +155,18 @@ Smart-Job-Portal/
 - Git
   
 ### Frontend Setup
+```bash
 cd frontend
 npm install
 npm start
+```
 
 ### Backend Setup
+```bash
 cd backend
 npm install
 npm start
+```
 
 ## 📜 Conclusion
 Kaajkhojo – Smart Job Portal provides a modern, secure, and efficient recruitment solution by integrating real-time communication, video interviews, and smart job management into a single platform.
