@@ -94,6 +94,7 @@ Smart-Job-Portal/
 │ ├── models/
 │ ├── routes/
 │ ├── middleware/
+| ├── .env
 │ └── server.js
 │
 ├── frontend/
@@ -102,7 +103,6 @@ Smart-Job-Portal/
 │ ├── pages/
 │ └── App.js
 │
-├── .env
 ├── package.json
 └── README.md
 ```
@@ -167,6 +167,42 @@ cd backend
 npm install
 npm start
 ```
+### .env File Setup in Backend 
+```bash
+# Server Configuration
+
+PORT=8080
+NODE_ENV=development
+
+# Database Configuration
+MONGO_URI=mongodb+srv://<username>:<password>@cluster0.mongodb.net/smart_job_portal
+
+# Authentication & Security
+JWT_SECRET=your_super_secure_jwt_secret_key
+JWT_EXPIRE=7d
+
+# Frontend URL (CORS)
+CLIENT_URL=http://localhost:3000
+
+# File Upload Configuration
+MAX_FILE_SIZE=5242880
+UPLOAD_PATH=uploads
+
+# Socket.IO Configuration
+SOCKET_PORT=8080
+
+# WebRTC Configuration (Optional STUN)
+STUN_SERVER=stun:stun.l.google.com:19302
+
+# Email Configuration (Future Use)
+EMAIL_SERVICE=gmail
+EMAIL_USER=your_email@gmail.com
+EMAIL_PASS=your_app_password
+
+# Admin Configuration
+ADMIN_EMAIL=admin@kaajkhojo.com
+```
+
 
 ## 📜 Conclusion
 Kaajkhojo – Smart Job Portal provides a modern, secure, and efficient recruitment solution by integrating real-time communication, video interviews, and smart job management into a single platform.
