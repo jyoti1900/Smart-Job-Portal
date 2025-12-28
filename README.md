@@ -176,3 +176,7 @@ Kaajkhojo – Smart Job Portal provides a modern, secure, and efficient recruitm
 - Sayan Pal
 - Indrajit Sahu
 - Hasanoor Zaman
+
+## Contrebution Repository
+- [https://github.com/jyoti1900/Smart-Job-Portal_Frontend.git]
+- [https://github.com/jyoti1900/Smart-Job-Portal_Backend.git]
