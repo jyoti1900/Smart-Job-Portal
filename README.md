@@ -94,7 +94,7 @@ Smart-Job-Portal/
 │ ├── models/
 │ ├── routes/
 │ ├── middleware/
-| ├── .env
+│ ├── .env
 │ └── server.js
 │
 ├── frontend/
