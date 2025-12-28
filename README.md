@@ -167,40 +167,40 @@ cd backend
 npm install
 npm start
 ```
+
 ### .env File Setup in Backend 
 ```bash
 # Server Configuration
-
 PORT=8080
 NODE_ENV=development
 
-# Database Configuration
-MONGO_URI=mongodb+srv://<username>:<password>@cluster0.mongodb.net/smart_job_portal
+# Database
+MONGO_URI=mongodb+srv://<db_user>:<db_password>@jobportaldata.aanluyg.mongodb.net/smart_job_portal
 
-# Authentication & Security
-JWT_SECRET=your_super_secure_jwt_secret_key
-JWT_EXPIRE=7d
+# Session & Security
+SESSION_SECRET=replace_with_strong_random_secret
+JWT_SECRET=replace_with_jwt_secret_key
 
-# Frontend URL (CORS)
+# Admin Credentials
+ADMIN_EMAIL=admin@kaajkhojo.com
+ADMIN_PASSWORD=replace_admin_password
+
+# Email Configuration (SMTP)
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=587
+EMAIL_USER=your_email@gmail.com
+EMAIL_PASSWORD=your_gmail_app_password
+
+# Google OAuth
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+
+GOOGLE_SIGNUP_CALLBACK=http://localhost:8080/api/v1/auth/google/signup/callback
+GOOGLE_LOGIN_CALLBACK=http://localhost:8080/api/v1/auth/google/login/callback
+
+# Frontend URL
 CLIENT_URL=http://localhost:3000
 
-# File Upload Configuration
-MAX_FILE_SIZE=5242880
-UPLOAD_PATH=uploads
-
-# Socket.IO Configuration
-SOCKET_PORT=8080
-
-# WebRTC Configuration (Optional STUN)
-STUN_SERVER=stun:stun.l.google.com:19302
-
-# Email Configuration (Future Use)
-EMAIL_SERVICE=gmail
-EMAIL_USER=your_email@gmail.com
-EMAIL_PASS=your_app_password
-
-# Admin Configuration
-ADMIN_EMAIL=admin@kaajkhojo.com
 ```
 
 
