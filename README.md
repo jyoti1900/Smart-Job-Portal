@@ -4,6 +4,11 @@ A **full-stack Smart Job Portal web application** built using the **MERN stack**
 
 ---
 
+## 🤝 Contrebution Repository
+- [https://github.com/jyoti1900/Smart-Job-Portal_Frontend.git]
+- [https://github.com/jyoti1900/Smart-Job-Portal_Backend.git]
+
+
 ## 📌 Project Motivation
 
 Traditional job portals lack real-time communication, transparency, and smart filtering.  
@@ -211,7 +216,3 @@ Kaajkhojo – Smart Job Portal provides a modern, secure, and efficient recruitm
 - Jyotipriya Das
 - Sayan Pal
 - Indrajit Sahu
-
-## 🤝 Contrebution Repository
-- [https://github.com/jyoti1900/Smart-Job-Portal_Frontend.git]
-- [https://github.com/jyoti1900/Smart-Job-Portal_Backend.git]
