@@ -5,8 +5,8 @@ A **full-stack Smart Job Portal web application** built using the **MERN stack**
 ---
 
 ## 📝 Project Repository
-- [https://github.com/jyoti1900/Smart-Job-Portal_Frontend.git]
-- [https://github.com/jyoti1900/Smart-Job-Portal_Backend.git]
+- [Frontend Repository](https://github.com/jyoti1900/Smart-Job-Portal_Frontend.git)
+- [Backend Repository](https://github.com/jyoti1900/Smart-Job-Portal_Backend.git)
 
 
 ## 📌 Project Motivation
