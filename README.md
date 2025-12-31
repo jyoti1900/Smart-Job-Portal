@@ -214,9 +214,9 @@ Kaajkhojo – Smart Job Portal provides a modern, secure, and efficient recruitm
 
 ## 👨‍💻 Developed By
 - Jyotipriya Das 👉 Project Lead & Backend Development
-- Sayan Pal 👉 Frontend Development
-- Indrajit Sahu 👉 Frontend Development
-- Hasanoor Zaman 👉 Frontend Development
+- Sayan Pal 👉 Frontend Development (All Section - Testing and Debugging)
+- Indrajit Sahu 👉 Frontend Development (User, Recruiter Section)
+- Hasanoor Zaman 👉 Frontend Development (Admin Section)
 
 ## 📖 Read More
 - [Smart Job Portal Documentation](https://github.com/jyoti1900/Smart-Job-Portal/blob/main/Documanetation/Smart_Job_Portal_Documanetation.pdf)
