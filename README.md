@@ -218,4 +218,4 @@ Kaajkhojo – Smart Job Portal provides a modern, secure, and efficient recruitm
 - Indrajit Sahu
 
 ## Read More
-![Read More](Documanetation/Smart_Job_Portal_Documanetation.pdf)
+- [https://github.com/jyoti1900/Smart-Job-Portal/blob/main/Documanetation/Smart_Job_Portal_Documanetation.pdf]
